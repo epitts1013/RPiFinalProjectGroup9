@@ -212,6 +212,7 @@ def generateDebugPuzzle():
 ###MAIN###
 global DEBUG
 DEBUG = False
+puzzle = []
 
 if DEBUG == True:
     puzzle = generateDebugPuzzle
