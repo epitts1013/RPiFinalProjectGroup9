@@ -17,9 +17,9 @@ class App(Frame):
         # buttons placed in 9x9 grid
         # buttons labelled 0-80
         # row 0 (buttons 0-8)
-        self.button0 = Button(master, text="0", height=3, width=6)
+        self.button0 = Button(master, text="0", height=3, width=6, command=lambda: processPuzzle(self.button0))
         self.button0.grid(row=0, column=0, sticky=N+E+S+W)
-        self.button1 = Button(master, text="1", height=3, width=6)
+        self.button1 = Button(master, text="1", height=3, width=6, command=lambda: processPuzzle(self.button1))
         self.button1.grid(row=0, column=1, sticky=N+E+S+W)
         self.button2 = Button(master, text="2", height=3, width=6)
         self.button2.grid(row=0, column=2, sticky=N+E+S+W)
@@ -197,7 +197,13 @@ class App(Frame):
         self.button80.grid(row=8, column=8, sticky=N+E+S+W)
 
         def processPuzzle(pButton):
-            pass
+            global selectedButton
+            if selectedButton == None:
+                pass
+            else:
+                selectedButton.config(bg="SystemButtonFace")
+            selectedButton = pButton
+            pButton.config(bg="green")
 
         def processNumpad(nButton):
             pass
@@ -214,7 +220,10 @@ def generateDebugPuzzle():
 
 ###MAIN###
 global DEBUG
+global selectedButton
+
 DEBUG = False
+selectedButton = None
 puzzle = []
 
 if DEBUG == True:
