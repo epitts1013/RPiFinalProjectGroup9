@@ -14,6 +14,9 @@ class App(Frame):
     # constructor takes two arguments: the window and the board with removed elements
     def __init__(self, master, puzzle):
         Frame.__init__(self, master)
+        # selectedButton stores the Button that was last selected by the user
+        # initialized to None
+        self.selectedButton = None
         # puzzle buttons placed in 9x9 grid on left of interface
         # buttons labelled 0-80
         # row 0 (buttons 0-8)
@@ -217,34 +220,32 @@ class App(Frame):
         self.numpad9.grid(row=3, column=11, padx=(0,20))
 
         def processPuzzle(pButton):
-            global selectedButton
-            if selectedButton == None:
+            if self.selectedButton == None:
                 pass
             else:
-                selectedButton.config(bg="SystemButtonFace")
-            selectedButton = pButton
+                self.selectedButton.config(bg="SystemButtonFace")
+            self.selectedButton = pButton
             pButton.config(bg="green")
 
         def processNumpad(nButton):
-            global selectedButton
             if nButton == self.numpad1:
-                selectedButton.config(text="1")
+                self.selectedButton.config(text="1")
             elif nButton == self.numpad2:
-                selectedButton.config(text="2")
+                self.selectedButton.config(text="2")
             elif nButton == self.numpad3:
-                selectedButton.config(text="3")
+                self.selectedButton.config(text="3")
             elif nButton == self.numpad4:
-                selectedButton.config(text="4")
+                self.selectedButton.config(text="4")
             elif nButton == self.numpad5:
-                selectedButton.config(text="5")
+                self.selectedButton.config(text="5")
             elif nButton == self.numpad6:
-                selectedButton.config(text="6")
+                self.selectedButton.config(text="6")
             elif nButton == self.numpad7:
-                selectedButton.config(text="7")
+                self.selectedButton.config(text="7")
             elif nButton == self.numpad8:
-                selectedButton.config(text="8")
+                self.selectedButton.config(text="8")
             elif nButton == self.numpad9:
-                selectedButton.config(text="9")
+                self.selectedButton.config(text="9")
 
 ###FUNCTIONS###
 def generateDebugPuzzle():
@@ -258,7 +259,6 @@ def generateDebugPuzzle():
 
 ###MAIN###
 global DEBUG
-global selectedButton
 
 DEBUG = False
 selectedButton = None
