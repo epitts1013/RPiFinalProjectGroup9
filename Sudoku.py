@@ -858,7 +858,109 @@ print r7
 print r8
 print r9
 
+# creates the list of solutions, to checi puzzle against later
+solution = []
+for i in range(0, 9):
+    solution.append(r1[i])
+for i in range(0, 9):
+    solution.append(r2[i])
+for i in range(0, 9):
+    solution.append(r3[i])
+for i in range(0, 9):
+    solution.append(r4[i])
+for i in range(0, 9):
+    solution.append(r5[i])
+for i in range(0, 9):
+    solution.append(r6[i])
+for i in range(0, 9):
+    solution.append(r7[i])
+for i in range(0, 9):
+    solution.append(r8[i])
+for i in range(0, 9):
+    solution.append(r9[i])
 
+def chooseDifficulty():
+    # gets difficulty level from user
+    diff = str(raw_input("What level of difficulty would you like(Easy, Medium, Hard): "))
+    # uses difficulty level to determine how many numbers will be taken out
+    if (diff == "Easy"):
+        d = randint(49, 55)
+        return d
+    elif (diff == "Medium"):
+        d = randint(40, 48)
+        return d
+    elif (diff == "Hard"):
+        d = randint(56, 64)
+        return d
+    else:
+        chooseDifficulty()
+        
+d = chooseDifficulty()
+# will pick a random row and index in that row, and replace that
+i = 0
+while (i <> d):
+    # for which row to pick
+    j = randint(1, 9)
+    # for the index
+    k = randint(0, 8)
+    # selects the row
+    if (j == 1):
+        # only if this element has not already been picked
+        if (r1[k] <> 0):
+            # sets that position equal to 0
+            # and increments counter because the number was removed
+            r1[k] = 0
+            i += 1
+    if (j == 2):
+        # the same as for the 1st row
+        if (r2[k] <> 0):
+            r2[k] = 0
+            i += 1
+    if (j == 3):
+        # the same as for the 1st row
+        if (r3[k] <> 0):
+            r3[k] = 0
+            i += 1
+    if (j == 4):
+        # the same as for the 1st row
+        if (r4[k] <> 0):
+            r4[k] = 0
+            i += 1
+    if (j == 5):
+        # the same as for the 1st row
+        if (r5[k] <> 0):
+            r5[k] = 0
+            i += 1
+    if (j == 6):
+        # the same as for the 1st row
+        if (r6[k] <> 0):
+            r6[k] = 0
+            i += 1
+    if (j == 7):
+        # the same as for the 1st row
+        if (r7[k] <> 0):
+            r7[k] = 0
+            i += 1
+    if (j == 8):
+        # the same as for the 1st row
+        if (r8[k] <> 0):
+            r8[k] = 0
+            i += 1
+    if (j == 9):
+        # the same as for the 1st row
+        if (r9[k] <> 0):
+            r9[k] = 0
+            i += 1
+print r1
+print r2
+print r3
+print r4
+print r5
+print r6
+print r7
+print r8
+print r9
 
+print solution
 
         
