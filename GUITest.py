@@ -9,8 +9,30 @@ from Tkinter import *
 from random import randint
 
 ###CLASSES###
-# creates GUI window
-class App(Frame):
+# creates GUI window for the start menu interface
+class SudokuMenu(Frame):
+    #constructor takes one argument: the window
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        # labels for title and instructions
+        self.labelTitle = Label(master, text="SUDOKU", font=("TkDefaultFont",28))
+        self.labelTitle.grid(row=0, column=0, padx=20, pady=(20,0))
+        self.labelDir = Label(master, text="How To Play:\nClick on a box to select it,\
+ then\nclick on one of the numpad\nnumbers on the right to place\nthat number in the selected\
+ box.", font=("TkDefaultFont",16))
+        self.labelDir.grid(row=1, column=0, pady=(0,20), padx=20, rowspan=3)
+        # buttons for difficulty and quit
+        self.buttonEasy = Button(master, text="Easy", font=("TkDefaultFont",12), height=2, width=18)
+        self.buttonEasy.grid(row=0, column=1, pady=(20,0), padx=(0,20))
+        self.buttonMedium = Button(master, text="Medium", font=("TkDefaultFont",12), height=2, width=18)
+        self.buttonMedium.grid(row=1, column=1, padx=(0,20))
+        self.buttonHard = Button(master, text="Hard", font=("TkDefaultFont",12), height=2, width=18)
+        self.buttonHard.grid(row=2, column=1, padx=(0,20))
+        self.buttonQuit = Button(master, text="Quit", font=("TkDefaultFont",12), height=2, width=18)
+        self.buttonQuit.grid(row=3, column=1, pady=(0,20), padx=(0,20))
+
+# creates GUI window for the puzzle interface
+class SudokuPuzzle(Frame):
     # constructor takes two arguments: the window and the board with removed elements
     def __init__(self, master, puzzle):
         Frame.__init__(self, master)
@@ -248,25 +270,12 @@ class App(Frame):
                 self.selectedButton.config(text="9")
 
 ###FUNCTIONS###
-def generateDebugPuzzle():
-    puzzle = []
-    for row in range(9):
-        puzzle.append([])
-        for col in range(9):
-            puzzle[row].append(randint(1,9))
 
-    return puzzle
 
 ###MAIN###
-global DEBUG
-
-DEBUG = False
-selectedButton = None
 puzzle = []
-
-if DEBUG == True:
-    puzzle = generateDebugPuzzle
-
 window = Tk()
-app = App(window, puzzle)
+window.title("Sudoku")
+app = SudokuMenu(window)
+#app = SudokuPuzzle(window, puzzle)
 window.mainloop()
