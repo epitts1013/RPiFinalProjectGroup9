@@ -1,8 +1,8 @@
-'''
-Names: Connor Waits, Jonas Kety, Eric Pitts
-Date: 4/30/18
-Description: Implementation of GUI into Sudoku Generator
-'''
+#######
+# Names: Connor Waits, Jonas Kety, Eric Pitts
+# Date: 4/30/18
+# Description: Implementation of GUI into Sudoku Generator
+#######
 
 ###IMPORTS###
 from Tkinter import *
