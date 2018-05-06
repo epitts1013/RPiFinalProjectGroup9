@@ -15,7 +15,7 @@ class SudokuMenu(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
         # difficulty variable, set to easy by default
-        self.difficulty = "easy"
+        self.difficulty = "Easy"
         # labels for title and instructions
         self.labelTitle = Label(master, text="SUDOKU", font=("TkDefaultFont",28))
         self.labelTitle.grid(row=0, column=0, padx=20, pady=(20,0))
@@ -40,11 +40,11 @@ class SudokuMenu(Frame):
         global DEBUG
         # sets difficulty based on button pressed
         if button == self.buttonEasy:
-            self.difficulty = "easy"
+            self.difficulty = "Easy"
         elif button == self.buttonMedium:
-            self.difficulty = "medium"
+            self.difficulty = "Medium"
         elif button == self.buttonHard:
-            self.difficulty = "hard"
+            self.difficulty = "Hard"
         if DEBUG == True:
             print self.difficulty
         # ends window.mainloop(), allowing puzzle to generate
