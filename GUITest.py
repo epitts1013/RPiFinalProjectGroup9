@@ -264,10 +264,12 @@ class SudokuPuzzle(Frame):
         self.numpad9 = Button(master, text="9", height=3, width=6, command=lambda: self.processNumpad(self.numpad9))
         self.numpad9.grid(row=3, column=11, padx=(0,20))
         self.numpadClear = Button(master, text="Clear", height=3, width=6, command=lambda: self.processNumpad(self.numpadClear))
-        self.numpadClear.grid(row=6, column = 10, columnspan=2, sticky=W+E, padx=(0,20))
+        self.numpadClear.grid(row=6, column=10, columnspan=2, sticky=W+E, padx=(0,20))
 
         # button for requesting puzzle check
-
+        self.checkButton = Button(master, text="Check Puzzle", height=3, width=6, command=lambda: self.checkPuzzle())
+        self.checkButton.grid(row=0, column=10, columnspan=2, sticky=W+E, padx=(0,20), pady=(20,0))
+        
     # process function for puzzle buttons, allows user to select a box to edit
     def processPuzzle(self, pButton):
         if self.selectedButton == None:
