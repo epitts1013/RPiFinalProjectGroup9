@@ -15,11 +15,7 @@ class SudokuMenu(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
         # difficulty variable, set to easy by default
-<<<<<<< HEAD
         self.difficulty = "Easy"
-=======
-        self.difficulty = "easy"
->>>>>>> 9a8b916987d5854a0a42d7fd4b95747204e8d2e6
         # labels for title and instructions
         self.labelTitle = Label(master, text="SUDOKU", font=("TkDefaultFont",28))
         self.labelTitle.grid(row=0, column=0, padx=20, pady=(20,0))
@@ -44,19 +40,11 @@ class SudokuMenu(Frame):
         global DEBUG
         # sets difficulty based on button pressed
         if button == self.buttonEasy:
-<<<<<<< HEAD
             self.difficulty = "Easy"
         elif button == self.buttonMedium:
             self.difficulty = "Medium"
         elif button == self.buttonHard:
             self.difficulty = "Hard"
-=======
-            self.difficulty = "easy"
-        elif button == self.buttonMedium:
-            self.difficulty = "medium"
-        elif button == self.buttonHard:
-            self.difficulty = "hard"
->>>>>>> 9a8b916987d5854a0a42d7fd4b95747204e8d2e6
         if DEBUG == True:
             print self.difficulty
         # ends window.mainloop(), allowing puzzle to generate
@@ -276,19 +264,12 @@ class SudokuPuzzle(Frame):
         self.numpad9 = Button(master, text="9", height=3, width=6, command=lambda: self.processNumpad(self.numpad9))
         self.numpad9.grid(row=3, column=11, padx=(0,20))
         self.numpadClear = Button(master, text="Clear", height=3, width=6, command=lambda: self.processNumpad(self.numpadClear))
-<<<<<<< HEAD
         self.numpadClear.grid(row=6, column = 10, columnspan=2, sticky=W+E, padx=(0,20))
-
-        # button for requesting puzzle check
-
-=======
-        self.numpadClear.grid(row=6, column=10, columnspan=2, sticky=W+E, padx=(0,20))
 
         # button for requesting puzzle check
         self.checkButton = Button(master, text="Check Puzzle", height=3, width=6, command=lambda: self.checkPuzzle())
         self.checkButton.grid(row=0, column=10, columnspan=2, sticky=W+E, padx=(0,20), pady=(20,0))
         
->>>>>>> 9a8b916987d5854a0a42d7fd4b95747204e8d2e6
     # process function for puzzle buttons, allows user to select a box to edit
     def processPuzzle(self, pButton):
         if self.selectedButton == None:
