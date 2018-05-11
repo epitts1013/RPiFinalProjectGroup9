@@ -1240,47 +1240,47 @@ def difficulty(d, r1, r2, r3, r4, r5, r6, r7, r8, r9):
 			if (r1[k] <> 0):
 				# sets that position equal to 0
 				# and increments counter because the number was removed
-				r1[k] = 0
+				r1[k] = ''
 				i += 1
 		if (j == 2):
 			# the same as for the 1st row
 			if (r2[k] <> 0):
-				r2[k] = 0
+				r2[k] = ''
 				i += 1
 		if (j == 3):
 			# the same as for the 1st row
 			if (r3[k] <> 0):
-				r3[k] = 0
+				r3[k] = ''
 				i += 1
 		if (j == 4):
 			# the same as for the 1st row
 			if (r4[k] <> 0):
-				r4[k] = 0
+				r4[k] = ''
 				i += 1
 		if (j == 5):
 			# the same as for the 1st row
 			if (r5[k] <> 0):
-				r5[k] = 0
+				r5[k] = ''
 				i += 1
 		if (j == 6):
 			# the same as for the 1st row
 			if (r6[k] <> 0):
-				r6[k] = 0
+				r6[k] = ''
 				i += 1
 		if (j == 7):
 			# the same as for the 1st row
 			if (r7[k] <> 0):
-				r7[k] = 0
+				r7[k] = ''
 				i += 1
 		if (j == 8):
 			# the same as for the 1st row
 			if (r8[k] <> 0):
-				r8[k] = 0
+				r8[k] = ''
 				i += 1
 		if (j == 9):
 			# the same as for the 1st row
 			if (r9[k] <> 0):
-				r9[k] = 0
+				r9[k] = ''
 				i += 1
 	return r1, r2, r3, r4, r5, r6, r7, r8, r9
 
