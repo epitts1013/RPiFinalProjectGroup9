@@ -859,7 +859,6 @@ r9 = []
 # call the sudoku function until r9 is filled 
 while ((len(r9) < 9)):
 		(r1, r2, r3, r4, r5, r6, r7, r8, r9) = sudoku(r1, r2, r3, r4, r5, r6, r7, r8, r9)
-
 # creates the list of solutions, to check puzzle against later
 solution = []
 for i in range(0, 9):
@@ -881,6 +880,7 @@ for i in range(0, 9):
 for i in range(0, 9):
 		solution.append(r9[i])
 
+# gives the solution if DEBUG is set to true
 if DEBUG == True:
 	print r1
 	print r2
@@ -891,7 +891,6 @@ if DEBUG == True:
 	print r7
 	print r8
 	print r9
-
 	print solution
 
 ### Window Classes ###
@@ -916,7 +915,7 @@ class SudokuMenu(Frame):
 				self.buttonMedium.grid(row=1, column=1, padx=(0,20))
 				self.buttonHard = Button(master, text="Hard", font=("TkDefaultFont",12), height=2, width=18, command=lambda: self.process(self.buttonHard))
 				self.buttonHard.grid(row=2, column=1, padx=(0,20))
-				self.buttonQuit = Button(master, text="Quit", font=("TkDefaultFont",12), height=2, width=18)
+				self.buttonQuit = Button(master, text="Quit", font=("TkDefaultFont",12), height=2, width=18, command=lambda: self.process(self.buttonQuit))
 				self.buttonQuit.grid(row=3, column=1, pady=(0,20), padx=(0,20))
 
 		# handles button presses
@@ -935,16 +934,16 @@ class SudokuMenu(Frame):
 				elif button == self.buttonHard:
 						self.difficulty = "Hard"
 						d = randint(56, 64)
+				# quits the game if the quit button is pressed
+				# doesn't allow the second window to generate
+				elif button == self.buttonQuit:
+					quit()
 						
 				if DEBUG == True:
 						print self.difficulty
 				# ends window.mainloop(), allowing puzzle to generate
 				window.destroy()
 				return d
-
-		# exits program from main menu
-		def game_quit():
-				pass
 
 # creates GUI window for the puzzle interface
 class SudokuPuzzle(Frame):
@@ -1354,9 +1353,6 @@ def difficulty(d, r1, r2, r3, r4, r5, r6, r7, r8, r9):
 		return r1, r2, r3, r4, r5, r6, r7, r8, r9
 
 ### Main Program ###
-global quitCondition
-quitCondition = False
-
 # creates the title window
 window = Tk()
 window.title("Sudoku")
@@ -1364,13 +1360,9 @@ app = SudokuMenu(window)
 window.mainloop()
 difficulty(d, r1, r2, r3, r4, r5, r6, r7, r8, r9)
 window = None
-
 # creates the puzzle window
-if quitCondition == True:
-	quit()
-else:
-	window = Tk()
-	window.title("Sudoku")
-	app = SudokuPuzzle(window)
-	app.disableClueButtons()
-	window.mainloop()
+window = Tk()
+window.title("Sudoku")
+app = SudokuPuzzle(window)
+app.disableClueButtons()
+window.mainloop()
