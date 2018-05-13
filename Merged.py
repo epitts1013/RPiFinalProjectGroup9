@@ -1291,7 +1291,26 @@ class SudokuPuzzle(Frame):
 
 		# checks to see if the users answer to the puzzle is correct
 		def checkPuzzle(self):
-				pass
+				global DEBUG
+				# creates a new list for the player's current board
+				# will change the list every time the player tries to check the puzzle
+				currentSolution = []
+				# the entire loop is in a try-except statement because it will give you a value error if one of the inputs is blank
+				# the error occurs because you cant change '' into an integer, so python doesn't like that
+				try:
+					for b in self.masterList:
+						currentSolution.append(int(b['text']))
+					if DEBUG == True:
+						print currentSolution
+					# checks to see if the user's solution is matched to the master solution
+					if currentSolution == solution:
+						print "You win!"
+					else:
+						print "NOPE"
+				# this is the messaged displayed if the user does not have all the values filled out
+				except ValueError:
+					print "It doesn't seem like you're done yet."
+					
 
 ### Difficulty Function ###
 # difficulty setter
