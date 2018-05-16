@@ -7,6 +7,7 @@
 from Tkinter import *
 from random import randint
 global DEBUG
+global defaultColor
 DEBUG = True
 
 ### Sudoku Function ###
@@ -898,6 +899,7 @@ class SudokuMenu(Frame):
         #constructor takes one argument: the window
         def __init__(self, master):
                 Frame.__init__(self, master)
+                global defaultColor
                 # difficulty variable, set to easy by default
                 self.difficulty = "Easy"
                 # labels for title and instructions
@@ -916,6 +918,7 @@ box.", font=("TkDefaultFont",16))
                 self.buttonHard.grid(row=2, column=1, padx=(0,20))
                 self.buttonQuit = Button(master, text="Quit", font=("TkDefaultFont",12), height=2, width=18, command=lambda: self.process(self.buttonQuit))
                 self.buttonQuit.grid(row=3, column=1, pady=(0,20), padx=(0,20))
+                defaultColor = self.buttonEasy['background']
 
         # handles button presses
         # in this case, sets difficulty variable based on user selection, and
@@ -1254,10 +1257,11 @@ class SudokuPuzzle(Frame):
                         
         # process function for puzzle buttons, allows user to select a box to edit
         def processPuzzle(self, pButton):
+                global defaultColor
                 if self.selectedButton == None:
                         pass
                 else:
-                        self.selectedButton.config(bg="SystemButtonFace")
+                        self.selectedButton.config(bg=defaultColor)
                 self.selectedButton = pButton
                 pButton.config(bg="green")
 
@@ -1317,7 +1321,7 @@ class SudokuPuzzle(Frame):
                                 self.labelStatus.config(text="NOPE")
                 # this is the messaged displayed if the user does not have all the values filled out
                 except ValueError:
-                        self.labelStatus.config(text="It doesn't seem like you're done yet.")
+                        self.labelStatus.config(text="Incomplete")
 
         # creates popup window if user wins
         def victoryPopup(self):
